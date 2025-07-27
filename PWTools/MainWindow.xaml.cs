@@ -143,7 +143,7 @@ namespace HostsEditor
         {
             try
             {
-                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Kukouri\PixelWorlds", writable: true))
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Kukouri\Pixel Worlds", writable: true))
                 {
                     if (key == null)
                     {
@@ -172,12 +172,14 @@ namespace HostsEditor
             }
         }
 
+        Random rand = new Random();
+
         private string GenerateRandomCognitoId()
         {
             string RandomString(int len)
             {
                 const string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-                var rand = new Random();
+
                 return new string(Enumerable.Repeat(chars, len).Select(s => s[rand.Next(s.Length)]).ToArray());
             }
 
